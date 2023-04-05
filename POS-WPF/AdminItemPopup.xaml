@@ -1,0 +1,76 @@
+﻿<Window x:Class="POS_WPF.AdminItemPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POS_WPF"
+        mc:Ignorable="d"
+        Title="AdminItemPopup" Height="950" Width="1400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid x:Name="ManageItemsPopup">
+        <Grid Background="#FFD44444" Height="950" Width="1400">
+            <TextBlock Text="Manage Items Page" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" TextDecorations="Underline" FontWeight="Bold"/>
+            <Grid Height="800" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,100,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Category" VerticalAlignment="Top" FontSize="36" Grid.Column="0"/>
+                <ComboBox x:Name="ItemCat" SelectionChanged="ItemCategoryChanged" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Margin="20,0,0,0" Background="White"/>
+
+                <ScrollViewer Height="700" VerticalAlignment="Bottom" Background="White" Grid.ColumnSpan="2">
+                    <StackPanel x:Name="ItemAdminItems"/>
+                </ScrollViewer>
+            </Grid>
+
+            <Grid Height="540" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="575,200,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="180"/>
+                </Grid.RowDefinitions>
+                <ToggleButton x:Name="ItemOption1" Click="ItemOption_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="150" Width="200" Background="White" Grid.Row="0">
+                    <TextBlock Text="Add Item" FontSize="38" TextWrapping="Wrap" TextAlignment="Center"/>
+                </ToggleButton>
+                <ToggleButton x:Name="ItemOption2" Click="ItemOption_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="150" Width="200" Background="White" Grid.Row="1">
+                    <TextBlock Text="Remove Item" FontSize="38" TextWrapping="Wrap" TextAlignment="Center"/>
+                </ToggleButton>
+                <ToggleButton x:Name="ItemOption3" Click="ItemOption_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="150" Width="200" Background="White" Grid.Row="2">
+                    <TextBlock Text="Edit Item" FontSize="38" TextWrapping="Wrap" TextAlignment="Center"/>
+                </ToggleButton>
+
+            </Grid>
+            <Grid Height="700" Width="550" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="810,200,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="150"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="220"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Item ID:" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="34" Grid.Column="0" Grid.Row="0"/>
+                <TextBox x:Name="ItemIDBox" FontSize="34" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="White" Grid.Column="1" Grid.Row="0" Margin="20,0,0,0"/>
+                <TextBlock Text="Item Name:" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="34" Grid.Column="0" Grid.Row="1"/>
+                <TextBox x:Name="ItemNameBox" FontSize="34" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="White" Grid.Column="1" Grid.Row="1" Margin="20,0,0,0"/>
+                <TextBlock Text="Stock Amount:" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="34" Grid.Column="0" Grid.Row="2"/>
+                <TextBox x:Name="ItemStockBox" TextChanged="CheckIsDigit" FontSize="34" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="White" Grid.Column="1" Grid.Row="2" Margin="20,0,0,0"/>
+                <TextBlock Text="Item Price:" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="34" Grid.Column="0" Grid.Row="3"/>
+                <TextBox x:Name="ItemPriceBox" TextChanged="CheckIsDouble"  FontSize="34" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="White" Grid.Column="1" Grid.Row="3" Margin="20,0,0,0"/>
+                <TextBlock Text="Category:" VerticalAlignment="Top" HorizontalAlignment="Right" TextWrapping="Wrap" FontSize="34" Grid.Column="0" Grid.Row="4"/>
+                <ComboBox x:Name="ItemCatNumBox" FontSize="34" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="White" Grid.Column="1" Grid.Row="4" Margin="20,0,0,0"/>
+
+                <Button Click="ClearItemFields" Grid.Column="1" Grid.Row="5" Background="White" Height="150" Width="160" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <TextBlock Text="Clear Fields" FontSize="30" TextWrapping="Wrap" TextAlignment="Center"/>
+                </Button>
+                <Button Click="ItemSubmitButtonClick" Grid.Column="1" Grid.Row="5" Background="White" Height="150" Width="160" Margin="170,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <TextBlock Text="Submit Changes" FontSize="30" TextWrapping="Wrap" TextAlignment="Center"/>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

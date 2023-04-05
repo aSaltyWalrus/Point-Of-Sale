@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="POS.AdminPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:POS"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DesignWidth="1920" d:DesignHeight="1027" Height="1080">
+
+    <Grid Background="#FFE25F5F">
+        <Grid HorizontalAlignment="Left" Height="1080" VerticalAlignment="Center" Width="250" Background="#FFD44444">
+            <Button Content="Home" Height="126" Margin="30,50,0,0" VerticalAlignment="Top" Width="190" Background="White" FontSize="40" FontFamily="Bodoni MT Black" FontWeight="Bold" Click="ToMainPage" Foreground="Black"/>
+            <Button Content="Admin" Height="126" Margin="30,226,0,0" VerticalAlignment="Top" Width="190" Background="White" FontSize="40" FontWeight="Bold" FontFamily="Bodoni MT Black" Foreground="Black"/>
+            <Button Content="Log Off" Height="126" Margin="30,904,0,0" VerticalAlignment="Top" Width="190" Background="White" FontSize="40" FontFamily="Bodoni MT Black" FontWeight="Bold" Click="ToLoginPage" Foreground="Black"/>
+
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="130" VerticalAlignment="Top" Width="430" Margin="300,50,0,0">
+            <Button Content="Item" Height="126" Margin="0,0,0,0" VerticalAlignment="Top" Width="190" Background="White" FontSize="40" FontFamily="Bodoni MT Black" FontWeight="Bold" Foreground="Black"/>
+            <Button Content="User" Height="126" Margin="240,0,0,0" VerticalAlignment="Top" Width="190" Background="White" FontSize="40" FontFamily="Bodoni MT Black" FontWeight="Bold" Click="ToUserPage" Foreground="Black"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="710" VerticalAlignment="Top" Width="560" Margin="318,286,0,0">
+            <TextBlock HorizontalAlignment="Left" Height="67" Margin="0,0,0,0" Text="Item ID" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="30" FontWeight="Bold" Foreground="Black"/>
+            <TextBox x:Name="textboxID" HorizontalAlignment="Left" Height="50" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" Background="White" BorderBrush="Black" Margin="156,0,0,0"/>
+            <TextBlock HorizontalAlignment="Left" Height="67" Margin="0,100,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="30" FontWeight="Bold" Foreground="Black"/>
+            <TextBox x:Name="textboxName" HorizontalAlignment="Left" Height="50" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" Background="White" BorderBrush="Black" Margin="156,100,0,0"/>
+            <TextBlock HorizontalAlignment="Left" Height="67" Margin="0,200,0,0" Text="Price" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="30" FontWeight="Bold" Foreground="Black"/>
+            <TextBox x:Name="textboxPrice" HorizontalAlignment="Left" Height="50" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" Background="White" BorderBrush="Black" Margin="156,200,0,0"/>
+            <TextBlock HorizontalAlignment="Left" Height="67" Margin="0,300,0,0" Text="Image" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="30" RenderTransformOrigin="0.448,1.134" FontWeight="Bold" Foreground="Black"/>
+            <TextBox x:Name="textboxImage" HorizontalAlignment="Left" Height="50" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" Background="White" BorderBrush="Black" Margin="156,300,0,0"/>
+            <TextBlock HorizontalAlignment="Left" Height="67" Margin="0,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="30" RenderTransformOrigin="0.448,1.134" FontWeight="Bold" Foreground="Black">Category</TextBlock>
+            <TextBox x:Name="textboxItemCategory" HorizontalAlignment="Left" Height="50" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" Background="White" BorderBrush="Black" Margin="156,400,0,0"/>
+            <Button Content="Add Item" Height="90" Margin="156,500,0,0" VerticalAlignment="Top" Width="180" Background="White" FontSize="36" FontFamily="Bodoni MT Black" FontWeight="Bold" Click="AddItem" Foreground="Black"/>
+            <Button Content="Edit Item" Height="90" Margin="376,500,0,0" VerticalAlignment="Top" Width="180" Background="White" FontSize="36" FontFamily="Bodoni MT Black" FontWeight="Bold" Click="EditItem" Foreground="Black"/>
+            <TextBlock x:Name="addItemDebug" HorizontalAlignment="Left" Height="67" Margin="0,630,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" FontSize="30" FontWeight="Bold"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="560" Margin="1128,286,0,0">
+            <TextBlock HorizontalAlignment="Left" Height="67" Margin="0,0,0,0" Text="Item ID" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="30" FontWeight="Bold" Foreground="Black"/>
+            <TextBox x:Name="textboxDeleteID" HorizontalAlignment="Left" Height="50" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" Background="White" BorderBrush="Black" Margin="156,0,0,0"/>
+            <Button Content="Remove Item" Height="90" Margin="0,100,0,0" VerticalAlignment="Top" Width="248" Background="White" FontSize="36" FontFamily="Bodoni MT Black" FontWeight="Bold" HorizontalAlignment="Center" Click="RemoveItem" Foreground="Black"/>
+            <TextBlock x:Name="deleteItemDebug" HorizontalAlignment="Left" Height="67" Margin="0,230,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="554" FontSize="30" FontWeight="Bold"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="560" Margin="1128,686,0,0">
+            <TextBlock HorizontalAlignment="Left" Height="67" Margin="0,0,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="30" FontWeight="Bold" Foreground="Black"/>
+            <TextBox x:Name="textboxCategory" HorizontalAlignment="Left" Height="50" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" Background="White" BorderBrush="Black" Margin="156,0,0,0"/>
+            <Button Content="Add&#xD;&#xA;Category" Height="100" Margin="156,100,0,0" VerticalAlignment="Top" Width="180" Background="White" FontSize="36" FontFamily="Bodoni MT Black" FontWeight="Bold" Click="AddCategory" Foreground="Black"/>
+            <Button Content="Remove&#xD;&#xA;Category" Margin="382,100,0,110" VerticalAlignment="Stretch" Width="174" Background="White" FontSize="36" FontFamily="Bodoni MT Black" FontWeight="Bold" Click="RemoveCategory" Foreground="Black"/>
+            <TextBlock x:Name="categoryDebug" HorizontalAlignment="Left" Height="67" Margin="0,230,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="550" FontSize="30" FontWeight="Bold"/>
+        </Grid>
+
+    </Grid>
+</Page>
